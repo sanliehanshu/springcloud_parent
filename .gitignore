@@ -1,2 +1,4 @@
 # Project exclude paths
 /springcloud_01_eureka_server/target/
+/.idea
+.idea
