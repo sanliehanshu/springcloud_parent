@@ -1,7 +1,10 @@
 package com.windsun.feignclient;
 
+import com.windsun.entry.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @ClassName : ProductClient
@@ -22,4 +25,7 @@ public interface ProductClient {
      */
     @GetMapping("/productList")
     String productListss();
+
+    @PostMapping("/saveProduct")
+    Product saveProduct(@RequestBody Product product);
 }

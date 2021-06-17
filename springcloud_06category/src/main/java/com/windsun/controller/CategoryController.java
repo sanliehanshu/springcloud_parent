@@ -1,11 +1,14 @@
 package com.windsun.controller;
 
+import com.windsun.entry.Product;
 import com.windsun.feignclient.ProductClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
@@ -38,5 +41,17 @@ public class CategoryController {
         System.out.println(sdf.format(new Date()));
         String productList = productClient.productListss();
         return "category : "+sdf.format(new Date())+"，当前端口为："+port+"，请求结果："+product+productList;
+    }
+
+    @PostMapping("/categoryPro")
+    public Product categoryPro(@RequestBody Product products){
+        log.info("进入类别服务"+products);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String product = productClient.product();
+        System.out.println(sdf.format(new Date()));
+        String productList = productClient.productListss();
+//        products.setTime(new Date());
+        Product s = productClient.saveProduct(products);
+        return s;
     }
 }
