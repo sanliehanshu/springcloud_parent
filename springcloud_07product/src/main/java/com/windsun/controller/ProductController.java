@@ -58,12 +58,17 @@ public class ProductController {
         log.info("进入商品服务");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(sdf.format(new Date()));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "product : "+sdf.format(new Date())+"，当前端口为："+port+name;
     }
 
     @GetMapping("/productList")
     public String productList(){
-        log.info("进入商品列表服务");
+        log.info("productList：进入商品列表服务");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(sdf.format(new Date()));
         return "productList : "+sdf.format(new Date())+"，当前端口为："+port;
@@ -71,7 +76,7 @@ public class ProductController {
 
     @PostMapping("/saveProduct")
     public Product saveProduct(@RequestBody Product product){
-        log.info("保存商品列表服务");
+        log.info("saveProduct：保存商品列表服务");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(product.toString());
         return product;
