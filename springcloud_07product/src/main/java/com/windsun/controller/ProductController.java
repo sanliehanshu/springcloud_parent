@@ -35,6 +35,32 @@ public class ProductController {
         return "product : "+sdf.format(new Date())+"，当前端口为："+port;
     }
 
+    /**
+     * RequestParam 传参
+     * @param name
+     * @return
+     */
+    @GetMapping("/productName")
+    public String product(@RequestParam("name") String name){
+        log.info("进入商品服务");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(sdf.format(new Date()));
+        return "product : "+sdf.format(new Date())+"，当前端口为："+port+name;
+    }
+
+    /**
+     * PathVariable 传参 url 传参
+     * @param name
+     * @return
+     */
+    @GetMapping("/productUrl/{name}")
+    public String productUrl(@PathVariable("name") String name){
+        log.info("进入商品服务");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(sdf.format(new Date()));
+        return "product : "+sdf.format(new Date())+"，当前端口为："+port+name;
+    }
+
     @GetMapping("/productList")
     public String productList(){
         log.info("进入商品列表服务");
