@@ -18,6 +18,8 @@
         <module>springcloud_07product</module>
         <module>springcloud_08hystrix</module>
         <module>springcloud_09OpenFeignHystrix</module>
+        <module>springcloud_12configserver</module>
+        <module>springcloud_13configclient</module>
     </modules>
 
     <parent>
