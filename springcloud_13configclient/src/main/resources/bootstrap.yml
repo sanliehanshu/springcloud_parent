@@ -1,15 +1,13 @@
-management:
-  health:
-    diskspace:
-      enabled: true
 spring:
   cloud:
     config:
       discovery:
         service-id: CONFIGSERVER
+        # 开启当前configclient，根据服务ID去注册中心获取
+        enabled: true
       label: master
       name: configclient
-      profile: dev
+      profile: prod
     consul:
-      host: localhost
+      host: 192.168.121.128
       port: 8500
